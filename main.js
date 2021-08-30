@@ -1,4 +1,4 @@
-import Plotly from "plotly.js-dist";
+// import Plotly from "plotly.js-dist";
 
 const lineColors = {
   green: "#44bb66",
@@ -86,31 +86,46 @@ const plot3Div = document.getElementById("viz3");
 //   });
 // }
 
+Plotly.d3.csv(
+  "https://raw.githubusercontent.com/plotly/datasets/master/clebsch-cubic.csv",
+  function (err, rows) {
+    function unpack(rows, key) {
+      return rows.map(function (row) {
+        return parseFloat(row[key]);
+      });
+    }
 
-var data = [
-  {
-      type: "isosurface",
-      x: [0,0,0,0,1,1,1,1],
-      y: [0,1,0,1,0,1,0,1],
-      z: [1,1,0,0,1,1,0,0],
-      value: [1,2,3,4,5,6,7,8],
-      isomin: 2,
-      isomax: 6,
-      colorscale: "Reds"
-  }
-];
+    var data = [
+      {
+        type: "isosurface",
+        x: unpack(rows, "x"),
+        y: unpack(rows, "y"),
+        z: unpack(rows, "z"),
+        value: unpack(rows, "value"),
+        isomin: -10,
+        isomax: 10,
+        surface: { show: true, count: 4, fill: 1, pattern: "odd" },
+        caps: {
+          x: { show: true },
+          y: { show: true },
+          z: { show: true },
+        },
+      },
+    ];
 
-var layout = {
-  margin: {t:0, l:0, b:0},
-  scene: {
-      camera: {
+    var layout = {
+      margin: { t: 0, l: 0, b: 0 },
+      scene: {
+        camera: {
           eye: {
-              x: 1.88,
-              y: -2.12,
-              z: 0.96
-          }
-      }
-  }
-};
+            x: 1.86,
+            y: 0.61,
+            z: 0.98,
+          },
+        },
+      },
+    };
 
-Plotly.newPlot(plot1Div, data, layout, {showSendToCloud: true});
+    Plotly.newPlot(plot1Div, data, layout, { showSendToCloud: true });
+  }
+);
