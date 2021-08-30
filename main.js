@@ -88,6 +88,44 @@ function unpack(rows, key) {
 }
 
 // [+] 3D plot example
+Plotly.d3.csv(
+  "https://raw.githubusercontent.com/plotly/datasets/master/api_docs/mt_bruno_elevation.csv",
+  function (err, rows) {
+    function unpack(rows, key) {
+      return rows.map(function (row) {
+        return row[key];
+      });
+    }
+
+    var z_data = [];
+    for (i = 0; i < 24; i++) {
+      z_data.push(unpack(rows, i));
+    }
+
+    var data = [
+      {
+        z: z_data,
+        type: "surface",
+      },
+    ];
+
+    var layout = {
+      title: "Mt Bruno Elevation",
+      autosize: true,
+      // width: 500,
+      // height: 500,
+      // margin: {
+      //   l: 65,
+      //   r: 50,
+      //   b: 65,
+      //   t: 90,
+      // }
+    };
+    Plotly.newPlot(plot2Div, data, layout);
+  }
+);
+
+// [+] 3D plot example
 // Plotly.d3.csv(
 //   "https://raw.githubusercontent.com/plotly/datasets/master/clebsch-cubic.csv",
 //   function (err, rows) {
