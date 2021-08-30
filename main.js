@@ -1,3 +1,5 @@
+import Plotly from "plotly.js-dist";
+
 const lineColors = {
   green: "#44bb66",
   red: "#bb4466",
