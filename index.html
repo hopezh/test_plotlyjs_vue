@@ -1,13 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>title</title>
+    <meta name="author" content="oat" />
+    <meta name="description" content="tutorial on plotly.js" />
+    <meta name="keywords" content="plotly.js" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- the following address will cause error -->
+    <!-- <script src="https://cdn.plot.ly/plotly-2.3.1.min.js"></script> -->
   </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+
+  <div class="grid-container">
+    <div class="header"></div>
+    <div class="nav"></div>
+    <div class="aside"></div>
+    <div class="main">
+      <div id="viz1" class="viz1"></div>
+      <div id="viz2" class="viz2"></div>
+      <div id="viz3" class="viz3"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </div>
 </html>
