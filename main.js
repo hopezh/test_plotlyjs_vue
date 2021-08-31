@@ -16,7 +16,7 @@ const plot1Div = document.getElementById("viz1");
 const plot2Div = document.getElementById("viz2");
 const plot3Div = document.getElementById("viz3");
 
-// [+] line chart example
+// [+] plot0Div: line chart apple stock price
 Plotly.d3.csv(
   "https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv",
   function (rows) {
@@ -96,7 +96,7 @@ function unpack(rows, key) {
   });
 }
 
-// [+] 3D plot example
+// [+] plot2Div: 3D plot of Mt Bruno
 Plotly.d3.csv(
   "https://raw.githubusercontent.com/plotly/datasets/master/api_docs/mt_bruno_elevation.csv",
   function (err, rows) {
@@ -128,13 +128,13 @@ Plotly.d3.csv(
         r: 10,
         b: 40,
         t: 40,
-      }
+      },
     };
     Plotly.newPlot(plot2Div, data, layout);
   }
 );
 
-// add animation example to plot3Div
+// [+] plot3Div: animation of Lorenz system
 var n = 100;
 var x = [],
   y = [],
@@ -211,7 +211,7 @@ function update() {
 
 requestAnimationFrame(update);
 
-// add animation example
+// [+] plot1Div: animation of gapminder data
 Plotly.d3.csv(
   "https://raw.githubusercontent.com/plotly/datasets/master/gapminderDataFiveYear.csv",
   function (err, data) {
@@ -314,7 +314,7 @@ Plotly.d3.csv(
     }
 
     var layout = {
-      width: 1000, 
+      width: 1000,
       xaxis: {
         title: "Life Expectancy",
         range: [30, 85],
@@ -396,7 +396,7 @@ Plotly.d3.csv(
   }
 );
 
-// [+] 3D plot example
+// [+] 3D plot of clebsch cubic
 // Plotly.d3.csv(
 //   "https://raw.githubusercontent.com/plotly/datasets/master/clebsch-cubic.csv",
 //   function (err, rows) {

@@ -9,6 +9,7 @@
     <meta name="keywords" content="plotly.js" />
     <link rel="stylesheet" href="style.css" type="text/css" />
 
+    <!-- [+] import plotly.js via CND -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
     <!-- the following address will cause error for Plotly.d3-->
@@ -25,10 +26,10 @@
       <div id="viz3" class="viz3"></div>
     </div>
 
-    <!-- the following works only when CDN is provided in head -->
+    <!-- [-] ... when CDN is provided in head -->
     <script src="main.js"></script>
 
-    <!-- use following when importing plotly in main.js  -->
+    <!-- [+] import plotly.js as module in main.js  -->
     <!-- <script type="module" src="./main.js"></script> -->
   </div>
 </html>
