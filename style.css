@@ -16,8 +16,8 @@
   grid-area: Header;
   background-color: lightgrey;
   border: 2px solid white;
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
 }
 
 .nav {
@@ -48,24 +48,24 @@
   grid-area: viz1;
   background-color: lightgrey;
   border: 2px solid white;
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
 }
 
 .viz2 {
   grid-area: viz2;
   background-color: lightgray;
   border: 2px solid white;
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
 }
 
 .viz3 {
   grid-area: viz3;
   background-color: lightgray;
   border: 2px solid white;
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
 }
 
 /* Typography */
