@@ -157,15 +157,56 @@ Plotly.d3.csv(
         Plotly.newPlot(plot1Div, data2, layout2, config);
         Plotly.newPlot(plot2Div, data3, layout3, config);
 
-        // [-] cross-charts link
-        // plot0Div.on("plotly_relayout", function (eventdata) {
-        //     // console.log(eventdata);
+        // [-] cross-chart interaction
+        plot0Div.on("plotly_relayout", function (eventdata) {
+            // console.log(eventdata);
 
-        //     var update;
+            var update;
 
-        //     if (eventdata["xaxis.autorange"]) {
-        //     }
-        // });
+            // prettier-ignore
+            if (eventdata["xaxis.autorange"]) {
+                update = {
+                    xaxis: {
+                        autorange  : true,
+                        fixedrange : true,
+                        rangeslider: {
+                            visible: false,
+                        },
+                    },
+                };
+            } else if (eventdata["xaxis.range"]) {
+                let xScaleStart = eventdata["xaxis.range"][0];
+                let xScaleEnd   = eventdata["xaxis.range"][1];
+
+                update = {
+                    xaxis: {
+                        autorange  : false,
+                        fixedrange : true,
+                        range      : [xScaleStart, xScaleEnd],
+                        rangeslider: {
+                            visible: false,
+                        },
+                    },
+                };
+            } else {
+                let xScaleStart = eventdata["xaxis.range[0]"];
+                let xScaleEnd   = eventdata["xaxis.range[1]"];
+
+                update = {
+                    xaxis: {
+                        autorange  : false,
+                        fixedrange : true,
+                        range      : [xScaleStart, xScaleEnd],
+                        rangeslider: {
+                            visible: false,
+                        },
+                    },
+                };
+            }
+
+            Plotly.relayout(plot1Div, update);
+            Plotly.relayout(plot2Div, update);
+        });
     }
 );
 
